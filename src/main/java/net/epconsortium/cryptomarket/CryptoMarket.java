@@ -54,7 +54,6 @@ public class CryptoMarket extends JavaPlugin {
         }
 
         debug = getConfig().getBoolean("debug", false);
-
         getInvestorDao().configureDatabase(this, (success) -> {
             if (!success) {
                 getServer().getPluginManager().disablePlugin(this);

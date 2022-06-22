@@ -213,3 +213,5 @@ messages:
    - '&c/cm give <target> <amount> <coin> - gives the amount of the coin to the target player'
    - '&c/cm take <target> <amount> <coin> - takes the amount of the coin from the target player'
    - '&c/cm set <target> <amount> <coin> - sets the amount of the coin as the target''s balance'
+   - '&c/cm buy - Start purchase negotiation'
+   - '&c/cm sell - Start selling negotiation'

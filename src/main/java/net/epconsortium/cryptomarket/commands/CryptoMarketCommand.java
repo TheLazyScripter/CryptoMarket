@@ -2,9 +2,11 @@ package net.epconsortium.cryptomarket.commands;
 
 import java.math.BigDecimal;
 import net.epconsortium.cryptomarket.CryptoMarket;
+import net.epconsortium.cryptomarket.conversation.NegotiationConversation;
 import net.epconsortium.cryptomarket.database.dao.Investor;
 import net.epconsortium.cryptomarket.finances.ExchangeRate;
 import net.epconsortium.cryptomarket.finances.ExchangeRates;
+import net.epconsortium.cryptomarket.finances.Negotiation;
 import net.epconsortium.cryptomarket.ui.InventoryDrawer;
 import net.epconsortium.cryptomarket.ui.frames.MenuFrame;
 import net.epconsortium.cryptomarket.util.Configuration;
@@ -65,6 +67,10 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
                         return processBalanceCommand(player);
                     case "update":
                         return processUpdateCommand(player);
+                    case "buy":
+                        return processBuyCommand(player);
+                    case "sell":
+                        return processSellCommand(player);
                 }
             } else {
                 if (player.hasPermission("cryptomarket.menu")) {
@@ -81,6 +87,22 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
             return false;
         }
         commandSender.sendMessage("§4Only players can use this command!");
+        return true;
+    }
+
+    private boolean processBuyCommand(Player player) {
+        if (player.hasPermission("cryptomarket.negotiate")) {
+            System.out.println("Buying");
+            new NegotiationConversation(plugin, Negotiation.PURCHASE, player).start();
+        }
+        return true;
+    }
+
+    private boolean processSellCommand(Player player) {
+        if (player.hasPermission("cryptomarket.negotiate")) {
+            new NegotiationConversation(plugin, Negotiation.SELL, player).start();
+        }
+        player.sendMessage(config.getMessageErrorNoPermission());
         return true;
     }
 
