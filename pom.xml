@@ -3,8 +3,8 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.epconsortium</groupId>
-	<artifactId>CryptoMarket</artifactId>
-	<version>2.1.2-SNAPSHOT</version>
+	<artifactId>CryptoMarketBRFork</artifactId>
+	<version>2.1.2</version>
 	<name>CryptoMarket</name>
 	<description>A plugin that brings the cryptocoins market experience to your server!</description>
 	<url>https://www.spigotmc.org/resources/cryptomarket.69031/</url>
