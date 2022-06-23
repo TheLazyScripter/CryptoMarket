@@ -156,12 +156,12 @@ public class MenuFrame extends Frame {
         coins.setPermission(ClickType.RIGHT, "cryptomarket.negotiate");
         coins.setListener(ClickType.RIGHT, () -> {
             getViewer().closeInventory();
-            new NegotiationConversation(plugin, Negotiation.PURCHASE, getViewer()).start();
+            new NegotiationConversation(plugin, Negotiation.PURCHASE, getViewer()).start(true);
         });
         coins.setPermission(ClickType.LEFT, "cryptomarket.negotiate");
         coins.setListener(ClickType.LEFT, () -> {
             getViewer().closeInventory();
-            new NegotiationConversation(plugin, Negotiation.SELL, getViewer()).start();
+            new NegotiationConversation(plugin, Negotiation.SELL, getViewer()).start(false);
         });
 
         return coins;

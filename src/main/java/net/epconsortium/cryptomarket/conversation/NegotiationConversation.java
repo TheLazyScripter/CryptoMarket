@@ -40,7 +40,7 @@ public class NegotiationConversation implements ConversationPrefix {
     /**
      * Starts the Negotiation Conversation with the Player
      */
-    public void start() {
+    public void start(Boolean do_buy) {
         if (!player.isOnline()) {
             return;
         }
@@ -49,7 +49,7 @@ public class NegotiationConversation implements ConversationPrefix {
             player.sendMessage(config.getMessageErrorConnectingToDatabase());
             return;
         }
-        createConversation(investor).begin();
+        createConversation(investor, do_buy).begin();
     }
 
     /**
@@ -58,10 +58,12 @@ public class NegotiationConversation implements ConversationPrefix {
      * @param investor the investor
      * @return the Conversation
      */
-    private Conversation createConversation(Investor investor) {
+    private Conversation createConversation(Investor investor, Boolean do_buy) {
         Map<Object, Object> data = new HashMap<>();
         data.put("negotiation", negotiation);
         data.put("investor", investor);
+        data.put("buy", do_buy);
+
 
         return new ConversationFactory(plugin)
                 .withFirstPrompt(new ExitWarningPrompt())

@@ -29,7 +29,13 @@ public class CoinPrompt extends FixedSetPrompt {
     @Override
     public String getPromptText(ConversationContext context) {
         Configuration config = Helper.getConfiguration(context);
-        return config.getMessageChooseCoin();
+        if ((boolean) context.getSessionData("buy")){
+            return config.getMessageChooseCoinBuy();
+        }
+        else{
+            return config.getMessageChooseCoinSell();
+        }
+
     }
 
     @Override
