@@ -55,6 +55,10 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
                         return processHelpCommand(player);
                     case "set":
                         return processSetCommand(player, args);
+                    case "buy":
+                        return processBuyCommand(player);
+                    case "sell":
+                        return processSellCommand(player);
                     case "take":
                         return processTakeCommand(player, args);
                     case "give":
@@ -67,10 +71,6 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
                         return processBalanceCommand(player);
                     case "update":
                         return processUpdateCommand(player);
-                    case "buy":
-                        return processBuyCommand(player);
-                    case "sell":
-                        return processSellCommand(player);
                 }
             } else {
                 if (player.hasPermission("cryptomarket.menu")) {
@@ -90,19 +90,25 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
+    /**
+     * Process the buy command
+     *
+     * @param player player
+     * @return true if the syntax is ok
+     */
     private boolean processBuyCommand(Player player) {
-        if (player.hasPermission("cryptomarket.negotiate")) {
-            System.out.println("Buying");
-            new NegotiationConversation(plugin, Negotiation.PURCHASE, player).start();
-        }
+        new NegotiationConversation(plugin, Negotiation.PURCHASE, player).start(true);
         return true;
     }
 
+    /**
+     * Process the buy command
+     *
+     * @param player player
+     * @return true if the syntax is ok
+     */
     private boolean processSellCommand(Player player) {
-        if (player.hasPermission("cryptomarket.negotiate")) {
-            new NegotiationConversation(plugin, Negotiation.SELL, player).start();
-        }
-        player.sendMessage(config.getMessageErrorNoPermission());
+        new NegotiationConversation(plugin, Negotiation.SELL, player).start(false);
         return true;
     }
 
@@ -158,7 +164,8 @@ public class CryptoMarketCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender commandSender,
             Command command, String label, String[] args) {
         List<String> subCommands = Arrays.asList("set", "give", "take", "save",
-                "balance", "update", "today", "help");
+                "buy", "sell", "balance",
+                "update", "today", "help");
         if (args.length == 0) {
             return subCommands;
         }

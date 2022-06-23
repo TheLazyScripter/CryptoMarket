@@ -24,10 +24,6 @@ permissions:
     default: true
   cryptomarket.update:
     default: true
-  cryptomarket.buy:
-    default: true
-  cryptomarket.sell:
-    default: true
   cryptomarket.save:
     default: op
   cryptomarket.give:

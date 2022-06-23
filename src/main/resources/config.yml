@@ -152,6 +152,8 @@ negotiation-chat:
    #First message of the conversation, {0} is the exit word
    warning: '&fTo exit the negotiation, type &7{0}&f at any time.'
    choose-coin: '&fWhich coin do you want to negotiate?'
+   choose-coin-buy: '&fWhich coin would you like to buy?'
+   choose-coin-sell: '&fWhich coin would you like to sell?'
    # {0} is a formated list of the coins
    valid-coins: '&fValid coins: {0}'
    how-much-buy: '&fHow much do you want to buy?'
@@ -209,9 +211,9 @@ messages:
    - '&b/cm balance - shows your balance'
    - '&b/cm today - shows today''s exchange rates'
    - '&b/cm update - updates the exchange rates'
+   - '&c/cm buy - begin buy negotiation'
+   - '&c/cm sell - begin sell negotiation'
    - '&c/cm save - saves the data to the database'
    - '&c/cm give <target> <amount> <coin> - gives the amount of the coin to the target player'
    - '&c/cm take <target> <amount> <coin> - takes the amount of the coin from the target player'
    - '&c/cm set <target> <amount> <coin> - sets the amount of the coin as the target''s balance'
-   - '&c/cm buy - Start purchase negotiation'
-   - '&c/cm sell - Start selling negotiation'
