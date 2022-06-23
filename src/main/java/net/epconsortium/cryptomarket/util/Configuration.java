@@ -342,6 +342,16 @@ public class Configuration {
                 "Which coin do you want to negotiate?");
     }
 
+    public String getMessageChooseCoinBuy(){
+        return getColoredString("negotiation-chat.choose-coin-buy",
+                "Which coin do you want to buy?");
+    }
+
+    public String getMessageChooseCoinSell(){
+        return getColoredString("negotiation-chat.choose-coin-sell",
+                "Which coin do you want to sell?");
+    }
+
     /**
      * Returns the new balance message
      *
